@@ -1,0 +1,39 @@
+{
+  "clientes": [
+    {
+      "nombre": "Humberto Castañeda Garcia",
+      "phone": "(464) 650-4890",
+      "correo": "Humbertoch@gmail.com",
+      "empresa": "Freelance",
+      "id": 1
+    },
+    {
+      "nombre": "Humberto Castañeda Garcia",
+      "phone": "(464) 650-4890",
+      "correo": "Humbertoch@gmail.com",
+      "empresa": "Freelance",
+      "id": 2
+    },
+    {
+      "nombre": "Test",
+      "phone": "(626) 276-22",
+      "correo": "correo@mil.com",
+      "empresa": "Testtest",
+      "id": 3
+    },
+    {
+      "nombre": "Tesfg",
+      "phone": "(266) 262-6",
+      "correo": "correo@mil.com",
+      "empresa": "Falso",
+      "id": 4
+    },
+    {
+      "nombre": "Tewrt",
+      "phone": "(554) 745-6745",
+      "correo": "Micorreo@mail.com",
+      "empresa": "Test",
+      "id": 5
+    }
+  ]
+}
