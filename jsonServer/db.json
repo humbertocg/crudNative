@@ -3,14 +3,14 @@
     {
       "nombre": "Humberto Castañeda Garcia",
       "phone": "(464) 650-4890",
-      "correo": "Humbertoch@gmail.com",
+      "correo": "Humbertocg@gmail.com",
       "empresa": "Freelance",
       "id": 1
     },
     {
-      "nombre": "Humberto Castañeda Garcia",
+      "nombre": "Oscar Castañeda Garcia",
       "phone": "(464) 650-4890",
-      "correo": "Humbertoch@gmail.com",
+      "correo": "Oscar@gmail.com",
       "empresa": "Freelance",
       "id": 2
     },
@@ -34,6 +34,69 @@
       "correo": "Micorreo@mail.com",
       "empresa": "Test",
       "id": 5
+    },
+    {
+      "nombre": "Nuevo usuario",
+      "phone": "(123) 456-7890",
+      "correo": "Un_correox@gmail.com",
+      "empresa": "Google",
+      "id": 6
+    },
+    {
+      "nombre": "Otro usuario",
+      "phone": "(464) 123-4567",
+      "correo": "Noesuncorreo@mail.com",
+      "empresa": "Otra empresa falsa",
+      "id": 7
+    },
+    {
+      "nombre": "Otro otro usuario",
+      "phone": "(462) 123-4567",
+      "correo": "Mptemgp@g.com",
+      "empresa": "Test",
+      "id": 8
+    },
+    {
+      "nombre": "Otro el otro del otro usuario",
+      "phone": "(455) 484-8484",
+      "correo": "Coreeo@ss.com",
+      "empresa": "Otra empresa falsa",
+      "id": 9
+    },
+    {
+      "nombre": "Jfgjfjyfg",
+      "phone": "(908) 678-9667",
+      "correo": "Dhdfgd@gdh.com",
+      "empresa": "Treyrtyre",
+      "id": 11
+    },
+    {
+      "nombre": "Update last",
+      "phone": "(785) 786-5856",
+      "correo": "Micorreo@gmail.com",
+      "empresa": "Test",
+      "id": 15
+    },
+    {
+      "nombre": "Gsfgsdd",
+      "phone": "(645) 654-3645",
+      "correo": "Corroe@mfes.copm",
+      "empresa": "Rweyweye",
+      "id": 16
+    },
+    {
+      "nombre": "Checa no que este item aparezca",
+      "phone": "(789) 456-1230",
+      "correo": "Correo@mail.com",
+      "empresa": "Miempresa",
+      "id": 17
+    },
+    {
+      "nombre": "Nuevo cliente ",
+      "phone": "(098) 745-6321",
+      "correo": "Elcorreo@test.com",
+      "empresa": "Otra empresa fantasma",
+      "id": 18
     }
   ]
 }

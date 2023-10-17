@@ -3,5 +3,6 @@ type clienteType = {
   correo: string;
   phone: string;
   empresa: string;
+  id?: string;
 };
 export default clienteType;

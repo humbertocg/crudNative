@@ -1,7 +1,7 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import ScreenPropsType from '../types/ScreenPropsType';
+import ScreenPropsType, {ClienteParamType} from '../types/ScreenPropsType';
 import {
   Button,
   Dialog,
@@ -27,10 +27,10 @@ const NuevoCliente = (
   const [phone, setPhone] = useState<string>('');
   const [correo, setCorreo] = useState<string>('');
   const [empresa, setEmpresa] = useState<string>('');
+  const [id, setId] = useState<string>();
   const [alerta, setAlerta] = useState<boolean>(false);
   const [onSaveError, setOnSaveError] = useState<boolean>(false);
-
-  const params = props.route.params;
+  const [isEditCliente, setIsEditCliente] = useState<boolean>(false);
 
   const getNombre = (nombreText: string) => {
     setNombre(nombreText);
@@ -49,16 +49,16 @@ const NuevoCliente = (
     setEmpresa(empresaText);
   };
 
-  const guardarCliente = async () => {
+  const guardarCliente = async (isEdit: boolean) => {
     if (!validarCampos()) {
       setAlerta(true);
       return;
     }
-    const cliente: clienteType = {nombre, phone, correo, empresa};
-    const result = await onSaveClient(cliente);
+    const cliente: clienteType = {nombre, phone, correo, empresa, id};
+    const result = await onSaveClient(cliente, isEdit);
     if (result) {
       clearForm();
-      props.navigation.navigate('Inicio');
+      props.navigation.navigate('Inicio', {isUpdate: true});
     } else {
       setOnSaveError(true);
     }
@@ -80,23 +80,44 @@ const NuevoCliente = (
     setPhone('');
     setCorreo('');
     setEmpresa('');
+    setId('');
   };
 
-  const onSaveClient = async (client: clienteType) => {
+  const onSaveClient = async (client: clienteType, isEdit: boolean) => {
     let result = false;
     try {
-      const response = await api.post('/clientes', client);
-      console.log(response);
-      result = response.status === 201;
+      if (isEdit) {
+        const response = await api.put(`/clientes/${id}`, client);
+        //console.log(response);
+        result = response.status === 200;
+      } else {
+        const response = await api.post('/clientes', client);
+        //console.log(response);
+        result = response.status === 201;
+      }
     } catch (ex) {
       console.log((ex as AxiosError).response);
     }
     return result;
   };
 
+  useEffect(() => {
+    const params = props.route?.params as ClienteParamType;
+    if (params !== undefined) {
+      setNombre(params.cliente.nombre);
+      setPhone(params.cliente.phone);
+      setCorreo(params.cliente.correo);
+      setEmpresa(params.cliente.empresa);
+      setId(params.cliente.id);
+      setIsEditCliente(true);
+    }
+  }, [props.route]);
+
   return (
     <View style={globalStyles.contenedor}>
-      <Headline style={globalStyles.titulo}>Añadir Nuevo Cliente</Headline>
+      <Headline style={globalStyles.titulo}>{`${
+        isEditCliente ? 'Editar' : 'Añadir Nuevo'
+      } Cliente`}</Headline>
       <TextInput
         label="Nombre"
         placeholder="Humberto"
@@ -128,8 +149,8 @@ const NuevoCliente = (
       <Button
         icon={'pencil-circle'}
         mode="contained"
-        onPress={() => guardarCliente()}>
-        Guardar cliente
+        onPress={() => guardarCliente(isEditCliente)}>
+        {isEditCliente ? 'Editar cliente' : 'Guardar cliente'}
       </Button>
 
       <Portal>

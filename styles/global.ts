@@ -12,6 +12,14 @@ const globalStyles = StyleSheet.create({
     marginBottom: 30,
     fontSize: 30,
   },
+  fab: {
+    position: 'absolute',
+    margin: 20,
+    right: 0,
+    bottom: 20,
+    borderRadius: 50,
+    backgroundColor: 'aquamarine',
+  },
 });
 
 export default globalStyles;
